@@ -4,17 +4,41 @@
   "description": "this is our realtime pizza app",
   "main": "index.js",
   "author": "tanaya",
+  "private": true,
   "scripts": {
     "serve": "node server.js",
-    "dev" :"nodemon server.js"
+    "dev": "nodemon server.js",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress   --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "license": "MIT",
   "dependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "add-license": "^0.0.1",
+    "babel-plugin-import": "^1.13.6",
+    "cross-env": "^7.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "install": "^0.13.0",
+    "install-peerdeps": "^3.0.3",
+    "license-checker": "^25.0.1",
+    "tailwindcss": "^3.2.4",
+    "vu": "^0.0.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
-  }
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "cssnano": "^5.1.14",
+    "eslint": "^8.31.0",
+    "laravel-mix": "^6.0.49",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.21",
+    "resolve-url-loader": "5.0.0",
+    "sass": "^1.57.1",
+    "sass-loader": "12.1.0"
+  },
+  "license": "MIT"
 }
