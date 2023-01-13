@@ -35,3 +35,22 @@ body
         color: $pure;
     }
  }
+ .btn-primary
+ {
+    background: $primary;
+    transition: $smooth;
+    &:hover
+    {
+        background: $primary-hover;
+    }
+ }
+
+
+ section.login 
+ {
+    background: $secondary;
+    min-height: calc(100vh - 120px);
+    a{
+        color: $primary;
+    }
+ }
