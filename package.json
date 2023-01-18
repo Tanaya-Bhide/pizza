@@ -30,6 +30,7 @@
     "license-checker": "^25.0.1",
     "mongoose": "^6.8.3",
     "node": "^19.4.0",
+    "noty": "^3.2.0-beta-deprecated",
     "tailwindcss": "^3.2.4",
     "vu": "^0.0.0",
     "webpack": "^5.75.0",
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
+    "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.14",
     "eslint": "^8.31.0",
     "laravel-mix": "^6.0.49",
