@@ -2,6 +2,7 @@ const User = require("../../models/user");
 const bcrypt = require("bcrypt");
 const user = require("../../models/user");
 const passport = require("passport");
+// hello i am tanaya 
 function authController() {
   return {
     login(req, res) {
