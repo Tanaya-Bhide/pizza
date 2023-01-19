@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const path = require("path");
-
+const passport = require("passport");
 const expressLayout = require("express-ejs-layouts");
 const PORT = process.env.PORT || 3000;
 
@@ -42,11 +42,16 @@ app.use(
     cookie: { maxAge: 1000 * 15 },
   })
 );
+const passportInit = require("./app/config/passport");
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
 });
 app.use(flash());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(express.json());
 app.use(expressLayout);
@@ -55,6 +60,6 @@ app.set("view engine", "ejs");
 
 require("./routes/web")(app);
 
-app.listen(3004, () => {
-  console.log("Listening on 3004");
+app.listen(3000, () => {
+  console.log("Listening on 3000");
 });
