@@ -2,7 +2,7 @@ const User = require("../../models/user");
 const bcrypt = require("bcrypt");
 const user = require("../../models/user");
 const passport = require("passport");
-// hello i am tanaya 
+// hello i am tanaya
 function authController() {
   return {
     login(req, res) {
@@ -11,7 +11,27 @@ function authController() {
     register(req, res) {
       res.render("auth/register");
     },
+    postLogin(req, res, next) {
+      passport.authenticate("local", (err, user, info) => {
+        if (err) {
+          req.flash("error", info.message);
+          return next(err);
+        }
+        if (!user) {
+          req.flash("error", info.message);
+          return res.redirect("/login");
+        }
 
+        req.logIn(user, (err) => {
+          if (err) {
+            req.flash("error", info.message);
+            return next(err);
+          }
+
+          return res.redirect("/");
+        });
+      })(req, res, next);
+    },
     async postRegister(req, res) {
       const { name, email, password } = req.body;
       //validate
